@@ -425,9 +425,9 @@ em {
   .work-head { grid-template-columns: minmax(0, 1.5fr) minmax(14rem, 0.55fr); align-items: end; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem 1.5rem; }
-  .project:last-child { grid-column: 1 / -1; width: calc(50% - 0.75rem); margin-left: auto; }
+  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
   .project-art { aspect-ratio: 4 / 5; padding: 1.75rem; }
+  .project-art b { font-size: clamp(1.8rem, 3.2vw, 2.75rem); }
   .project-art i { top: 1.65rem; right: 1.75rem; }
   .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
   .manifesto-copy { grid-template-columns: minmax(4rem, 1fr) minmax(0, 1fr); }
@@ -476,9 +476,6 @@ em {
   .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
   .service-action { grid-column: 4; }
-  .project-grid { grid-template-columns: 1.1fr 0.8fr; }
-  .project:last-child { width: 66%; }
-  .project-b .project-art { margin-top: 5rem; }
   .project-art { aspect-ratio: 4 / 5; }
   .manifesto { padding-block: 10rem; }
   .manifesto h2 { margin: 3.5rem 0 5rem; }
