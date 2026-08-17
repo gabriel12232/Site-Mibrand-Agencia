@@ -100,6 +100,33 @@
   addEventListener('scroll', onScroll, { passive: true });
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const projectTrack = document.querySelector('[data-project-track]');
+  const projectPrevious = document.querySelector('[data-project-prev]');
+  const projectNext = document.querySelector('[data-project-next]');
+
+  if (projectTrack && projectPrevious && projectNext) {
+    const updateProjectControls = () => {
+      const maxScroll = projectTrack.scrollWidth - projectTrack.clientWidth;
+      projectPrevious.disabled = projectTrack.scrollLeft <= 2;
+      projectNext.disabled = projectTrack.scrollLeft >= maxScroll - 2;
+    };
+    const moveProjects = direction => {
+      const firstProject = projectTrack.querySelector('.project');
+      if (!firstProject) return;
+      const gap = parseFloat(getComputedStyle(projectTrack).columnGap) || 0;
+      projectTrack.scrollBy({
+        left: direction * (firstProject.getBoundingClientRect().width + gap),
+        behavior: reducedMotion ? 'auto' : 'smooth'
+      });
+    };
+
+    projectPrevious.addEventListener('click', () => moveProjects(-1));
+    projectNext.addEventListener('click', () => moveProjects(1));
+    projectTrack.addEventListener('scroll', updateProjectControls, { passive: true });
+    addEventListener('resize', updateProjectControls);
+    updateProjectControls();
+  }
+
   if (reducedMotion) {
     document.querySelectorAll('.reveal').forEach(item => item.classList.add('visible'));
   } else {

@@ -308,8 +308,21 @@ em {
 .service-preview { display: none; }
 .service-action { grid-column: 2; justify-self: start; padding-top: 0.35rem; border-bottom: 1px solid currentColor; font-family: var(--font-display); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.4; white-space: nowrap; transition: transform 0.25s var(--ease); }
 
-.project-grid { display: grid; gap: 2.75rem; }
-.project { display: grid; min-width: 0; gap: 1rem; align-content: start; }
+.project-grid {
+  display: grid;
+  grid-auto-columns: minmax(16rem, 86%);
+  grid-auto-flow: column;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-padding-inline: 0.1rem;
+  scroll-snap-type: inline mandatory;
+  scrollbar-color: var(--secondary) transparent;
+  scrollbar-width: thin;
+}
+.project-grid:focus-visible { outline-offset: 0.4rem; }
+.project { display: grid; min-width: 0; gap: 1rem; align-content: start; scroll-snap-align: start; }
 .project-media {
   display: flex;
   width: 100%;
@@ -326,6 +339,21 @@ em {
 .project-info { display: grid; gap: 0.55rem; }
 .project-info h3 { font-size: clamp(1.5rem, 7vw, 2rem); line-height: 1.05; }
 .project-info p { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+.project-controls { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.project-controls button {
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  transition: color 0.25s var(--ease), background 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+.project-controls button:disabled { opacity: 0.32; cursor: default; }
 
 .behance-link {
   display: flex;
@@ -420,7 +448,7 @@ em {
   .about-grid { gap: 3rem; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem 1.5rem; }
+  .project-grid { grid-auto-columns: calc((100% - 1.5rem) / 2); gap: 1.5rem; }
   .project-media { padding: 1.75rem; }
   .project-info h3 { font-size: clamp(1.65rem, 3.2vw, 2.25rem); }
   .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
@@ -470,7 +498,7 @@ em {
   .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
   .service-action { grid-column: 4; }
-  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .project-grid { grid-auto-columns: calc((100% - 3rem) / 3); }
   .manifesto { padding-block: 10rem; }
   .manifesto h2 { margin: 3.5rem 0 5rem; }
   .footer { padding-bottom: 2rem; }
@@ -479,7 +507,7 @@ em {
 
 @media (min-width: 80rem) {
   :root { --container: min(100% - 6rem, 80rem); }
-  .project-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .project-grid { grid-auto-columns: calc((100% - 4.5rem) / 4); }
   .project-media { padding: 2rem; }
 }
 
@@ -490,6 +518,7 @@ em {
   .project-media { transition: transform 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease); }
   .button:hover { transform: translateY(-0.2rem); }
   .project:hover .project-media { transform: scale(0.985); }
+  .project-controls button:not(:disabled):hover { background: var(--primary); color: var(--white); }
   .service:hover { background: rgba(255, 250, 245, 0.36); }
   .service:hover .service-action { transform: translateX(0.2rem); }
   .behance-link:hover { color: var(--secondary); }
