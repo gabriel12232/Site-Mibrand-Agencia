@@ -69,8 +69,7 @@ div {
 
 h1,
 h2,
-h3,
-.project-art b {
+h3 {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 500;
@@ -310,25 +309,23 @@ em {
 .service-action { grid-column: 2; justify-self: start; padding-top: 0.35rem; border-bottom: 1px solid currentColor; font-family: var(--font-display); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.4; white-space: nowrap; transition: transform 0.25s var(--ease); }
 
 .project-grid { display: grid; gap: 2.75rem; }
-.project { min-width: 0; }
-.project-art {
-  position: relative;
+.project { display: grid; min-width: 0; gap: 1rem; align-content: start; }
+.project-media {
   display: flex;
   width: 100%;
   aspect-ratio: 4 / 5;
   padding: 1.25rem;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-end;
+  background: #6c4034;
+  color: #f2e1d6;
   overflow: clip;
 }
-.project-art span { font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.14em; }
-.project-art b { font-size: clamp(2.5rem, 11vw, 3.75rem); }
-.project-art i { position: absolute; top: 1.15rem; right: 1.25rem; font-family: var(--font-display); font-size: 1.5rem; font-style: normal; }
-.project-a .project-art { background: #6c4034; color: #f2e1d6; }
-.project-b .project-art { background: #ceb39e; color: #412c25; }
-.project-c .project-art { background: #2b211e; color: #d9b9a6; }
-.project p { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; margin: 0.75rem 0 0; }
-.project p small { color: var(--text-muted); font-family: var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; }
+.project:nth-child(3n + 2) .project-media { background: #ceb39e; color: #412c25; }
+.project:nth-child(3n) .project-media { background: #2b211e; color: #d9b9a6; }
+.project-media span { font-family: var(--font-display); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.project-info { display: grid; gap: 0.55rem; }
+.project-info h3 { font-size: clamp(1.5rem, 7vw, 2rem); line-height: 1.05; }
+.project-info p { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
 .behance-link {
   display: flex;
@@ -423,10 +420,9 @@ em {
   .about-grid { gap: 3rem; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
-  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-  .project-art { aspect-ratio: 4 / 5; padding: 1.75rem; }
-  .project-art b { font-size: clamp(1.8rem, 3.2vw, 2.75rem); }
-  .project-art i { top: 1.65rem; right: 1.75rem; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem 1.5rem; }
+  .project-media { padding: 1.75rem; }
+  .project-info h3 { font-size: clamp(1.65rem, 3.2vw, 2.25rem); }
   .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
   .manifesto-copy { grid-template-columns: minmax(4rem, 1fr) minmax(0, 1fr); }
   .process-list li { grid-template-columns: 4rem minmax(11rem, 0.6fr) minmax(0, 1fr); align-items: center; }
@@ -474,7 +470,7 @@ em {
   .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
   .service-action { grid-column: 4; }
-  .project-art { aspect-ratio: 4 / 5; }
+  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .manifesto { padding-block: 10rem; }
   .manifesto h2 { margin: 3.5rem 0 5rem; }
   .footer { padding-bottom: 2rem; }
@@ -483,16 +479,17 @@ em {
 
 @media (min-width: 80rem) {
   :root { --container: min(100% - 6rem, 80rem); }
-  .project-art { padding: 2rem; }
+  .project-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .project-media { padding: 2rem; }
 }
 
 @media (hover: hover) and (pointer: fine) {
   .button,
   .behance-link,
   .floating-whatsapp,
-  .project-art { transition: transform 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease); }
+  .project-media { transition: transform 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease); }
   .button:hover { transform: translateY(-0.2rem); }
-  .project:hover .project-art { transform: scale(0.985); }
+  .project:hover .project-media { transform: scale(0.985); }
   .service:hover { background: rgba(255, 250, 245, 0.36); }
   .service:hover .service-action { transform: translateX(0.2rem); }
   .behance-link:hover { color: var(--secondary); }
