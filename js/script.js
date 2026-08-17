@@ -12,6 +12,16 @@
     link.rel = 'noopener';
   });
 
+  document.querySelectorAll('[data-whatsapp-service]').forEach(link => {
+    const service = link.dataset.whatsappService;
+    const message = `Olá! Conheci a MIBRAND pelo site e gostaria de conversar sobre o serviço de ${service}.`;
+    const encodedServiceMessage = encodeURIComponent(message).replace(/!/g, '%21');
+    link.href = `https://wa.me/${contactConfig.whatsappNumber}?text=${encodedServiceMessage}`;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.setAttribute('aria-label', `Conversar sobre ${service} pelo WhatsApp`);
+  });
+
   const header = document.querySelector('[data-header]');
   const menu = document.querySelector('#menu');
   const toggle = document.querySelector('.menu-toggle');
@@ -84,15 +94,6 @@
   };
   syncMenuMode();
   desktopQuery.addEventListener('change', syncMenuMode);
-
-  document.querySelectorAll('.service summary').forEach(summary => {
-    summary.addEventListener('keydown', event => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      event.preventDefault();
-      const service = summary.closest('details');
-      service.open = !service.open;
-    });
-  });
 
   const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 24);
   onScroll();
