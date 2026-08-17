@@ -292,14 +292,13 @@ em {
 .about-grid p + p { margin-top: 1rem; color: var(--text-muted); }
 
 .services { background: var(--surface); }
-.services-head,
+.services-head { margin-bottom: 2.75rem; }
 .work-head { display: grid; gap: 1.25rem; margin-bottom: 2.75rem; }
-.services-head p,
 .work-head p { max-width: 30rem; margin: 0; color: var(--text-muted); }
 .service {
   display: grid;
   min-height: 6.75rem;
-  grid-template-columns: 2rem minmax(0, 1fr) 1.5rem;
+  grid-template-columns: 2rem minmax(0, 1fr);
   gap: 0.75rem;
   align-items: start;
   padding-block: 1.25rem;
@@ -313,7 +312,7 @@ em {
 .service h3 { overflow-wrap: normal; }
 .service-main p { max-width: 34rem; margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
 .service-preview { display: none; }
-.service > i { padding-top: 0.2rem; font-style: normal; font-size: 1.15rem; text-align: center; transition: transform 0.25s var(--ease); }
+.service-action { grid-column: 2; justify-self: start; padding-top: 0.35rem; border-bottom: 1px solid currentColor; font-family: var(--font-display); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.4; white-space: nowrap; transition: transform 0.25s var(--ease); }
 
 .project-grid { display: grid; gap: 2.75rem; }
 .project { min-width: 0; }
@@ -430,9 +429,9 @@ em {
   .hero-image { width: min(78%, 35rem); }
   .section-label { grid-template-columns: 4rem minmax(0, 1fr); }
   .about-grid { gap: 3rem; }
-  .services-head,
   .work-head { grid-template-columns: minmax(0, 1.5fr) minmax(14rem, 0.55fr); align-items: end; }
-  .service { grid-template-columns: 3.5rem minmax(0, 1fr) 1.5rem; min-height: 7.5rem; padding-block: 1.5rem; }
+  .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
+  .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem 1.5rem; }
   .project:last-child { grid-column: 1 / -1; width: calc(50% - 0.75rem); margin-left: auto; }
   .project-art { aspect-ratio: 4 / 5; padding: 1.75rem; }
@@ -483,8 +482,9 @@ em {
   .hero-image img { aspect-ratio: 4 / 5; max-height: 43rem; }
   .hero-side { position: absolute; right: 1rem; bottom: 3rem; display: block; margin: 0; writing-mode: vertical-rl; color: rgba(255, 255, 255, 0.45); font-size: 0.58rem; letter-spacing: 0.16em; }
   .about-grid { grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr); gap: 6rem; align-items: end; }
-  .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) 1.5rem; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
+  .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
+  .service-action { grid-column: 4; }
   .project-grid { grid-template-columns: 1.1fr 0.8fr; }
   .project:last-child { width: 66%; }
   .project-b .project-art { margin-top: 5rem; }
@@ -509,7 +509,7 @@ em {
   .button:hover { transform: translateY(-0.2rem); }
   .project:hover .project-art { transform: scale(0.985); }
   .service:hover { background: rgba(255, 250, 245, 0.36); }
-  .service:hover > i { transform: translate(0.15rem, -0.15rem); }
+  .service:hover .service-action { transform: translateX(0.2rem); }
   .behance-link:hover { color: var(--secondary); }
   .floating-whatsapp:hover { transform: translateY(-0.15rem); background: #4a2d25; }
   .menu a:hover::after,
