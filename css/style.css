@@ -283,8 +283,7 @@ em {
 .section-label { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); padding-bottom: 1rem; border-bottom: 1px solid var(--line); color: var(--text-muted); }
 .about-grid,
 .services-head,
-.work-head,
-.process-head { margin-top: 2.75rem; }
+.work-head { margin-top: 2.75rem; }
 .about-grid { display: grid; gap: 2rem; }
 .about-grid > div { max-width: 38rem; }
 .about-grid p { margin: 0; }
@@ -379,13 +378,6 @@ em {
 .manifesto-copy { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(247, 247, 247, 0.2); }
 .manifesto-copy p { max-width: 34rem; margin: 0; color: rgba(247, 247, 247, 0.7); }
 
-.process-head { margin-bottom: 2.5rem; }
-.process-list { margin: 0; padding: 0; list-style: none; }
-.process-list li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.5rem 0.75rem; padding-block: 1.4rem; border-top: 1px solid var(--line); }
-.process-list li:last-child { border-bottom: 1px solid var(--line); }
-.process-list span { padding-top: 0.35rem; color: var(--text-muted); font-family: var(--font-display); font-size: 0.68rem; }
-.process-list p { grid-column: 2; max-width: 32rem; margin: 0; color: var(--text-muted); }
-
 .contact { padding-block: clamp(5.5rem, 22vw, 8rem); background: var(--secondary); color: var(--text); text-align: left; }
 .contact .eyebrow { margin: 0 0 1.75rem; }
 .contact h2 { max-width: 17ch; }
@@ -458,8 +450,6 @@ em {
   .project-info h3 { font-size: clamp(1.65rem, 3.2vw, 2.25rem); }
   .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
   .manifesto-copy { grid-template-columns: minmax(4rem, 1fr) minmax(0, 1fr); }
-  .process-list li { grid-template-columns: 4rem minmax(11rem, 0.6fr) minmax(0, 1fr); align-items: center; }
-  .process-list p { grid-column: 3; }
   .contact { text-align: center; }
   .contact h2,
   .contact > .container > p:not(.eyebrow),
