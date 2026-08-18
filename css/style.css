@@ -1,15 +1,16 @@
 :root {
-  --primary: #3a241e;
-  --secondary: #aa765c;
-  --background: #f4efe8;
-  --surface: #e8ddd2;
-  --text: #2d201c;
-  --text-muted: #74665f;
-  --accent: #d7b39f;
-  --white: #fffaf5;
-  --line: rgba(58, 36, 30, 0.18);
-  --font-display: "Manrope", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --primary: #352019;
+  --secondary: #bbafa1;
+  --background: #f6ebda;
+  --surface: #f7f7f7;
+  --text: #111010;
+  --text-muted: rgba(17, 16, 16, 0.66);
+  --accent: #bbafa1;
+  --white: #f7f7f7;
+  --line: rgba(17, 16, 16, 0.18);
+  --font-display: "Montserrat", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-editorial: "Editor's Note", "Lora", serif;
   --ease: cubic-bezier(0.2, 0.75, 0.25, 1);
   --container: min(100% - 2rem, 76rem);
   --section-space: clamp(5rem, 18vw, 7rem);
@@ -82,16 +83,19 @@ h2 { font-size: clamp(2.25rem, 9.8vw, 3.1rem); }
 h3 { font-size: clamp(1.55rem, 7vw, 2rem); }
 
 em {
-  color: var(--accent);
-  font-family: inherit;
-  font-style: normal;
+  color: var(--primary);
+  font-family: var(--font-editorial);
+  font-style: italic;
   font-weight: 400;
 }
 
-::selection { background: var(--secondary); color: var(--white); }
+.hero em,
+.manifesto em { color: var(--secondary); }
+
+::selection { background: var(--secondary); color: var(--text); }
 
 :focus-visible {
-  outline: 2px solid var(--secondary);
+  outline: 2px solid var(--primary);
   outline-offset: 4px;
 }
 
@@ -123,7 +127,7 @@ em {
 .header.scrolled,
 .header.menu-active {
   border-bottom: 1px solid var(--line);
-  background: rgba(244, 239, 232, 0.96);
+  background: rgba(246, 235, 218, 0.96);
   color: var(--text);
   backdrop-filter: blur(12px);
 }
@@ -247,9 +251,9 @@ em {
   text-transform: uppercase;
 }
 
-.hero .eyebrow { margin: 0 0 1.5rem; color: rgba(255, 250, 245, 0.62); }
+.hero .eyebrow { margin: 0 0 1.5rem; color: rgba(246, 235, 218, 0.62); }
 .hero h1 { max-width: 12ch; }
-.hero-text { max-width: 34rem; margin: 1.5rem 0 0; color: rgba(255, 250, 245, 0.74); }
+.hero-text { max-width: 34rem; margin: 1.5rem 0 0; color: rgba(246, 235, 218, 0.74); }
 
 .actions {
   display: grid;
@@ -271,7 +275,7 @@ em {
 
 .button { padding: 0.75rem 1rem; border: 1px solid transparent; }
 .button-light { background: var(--white); color: var(--primary); }
-.text-link { padding: 0.6rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.32); }
+.text-link { padding: 0.6rem 0; border-bottom: 1px solid rgba(246, 235, 218, 0.32); }
 
 .hero-side { display: none; }
 
@@ -330,12 +334,12 @@ em {
   aspect-ratio: 4 / 5;
   padding: 1.25rem;
   align-items: flex-end;
-  background: #6c4034;
-  color: #f2e1d6;
+  background: var(--primary);
+  color: var(--background);
   overflow: clip;
 }
-.project:nth-child(3n + 2) .project-media { background: #ceb39e; color: #412c25; }
-.project:nth-child(3n) .project-media { background: #2b211e; color: #d9b9a6; }
+.project:nth-child(3n + 2) .project-media { background: var(--secondary); color: var(--text); }
+.project:nth-child(3n) .project-media { background: var(--text); color: var(--background); }
 .project-media span { font-family: var(--font-display); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 .project-info { display: grid; gap: 0.55rem; }
 .project-info h3 { font-size: clamp(1.5rem, 7vw, 2rem); line-height: 1.05; }
@@ -372,8 +376,8 @@ em {
 .manifesto { padding-block: clamp(6rem, 24vw, 8rem); background: var(--primary); color: var(--white); }
 .manifesto > .container > p { margin: 0; font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.16em; }
 .manifesto h2 { max-width: 16ch; margin: 2.25rem 0 3.5rem; }
-.manifesto-copy { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.2); }
-.manifesto-copy p { max-width: 34rem; margin: 0; color: rgba(255, 255, 255, 0.7); }
+.manifesto-copy { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(247, 247, 247, 0.2); }
+.manifesto-copy p { max-width: 34rem; margin: 0; color: rgba(247, 247, 247, 0.7); }
 
 .process-head { margin-bottom: 2.5rem; }
 .process-list { margin: 0; padding: 0; list-style: none; }
@@ -382,13 +386,13 @@ em {
 .process-list span { padding-top: 0.35rem; color: var(--text-muted); font-family: var(--font-display); font-size: 0.68rem; }
 .process-list p { grid-column: 2; max-width: 32rem; margin: 0; color: var(--text-muted); }
 
-.contact { padding-block: clamp(5.5rem, 22vw, 8rem); background: var(--secondary); color: var(--white); text-align: left; }
+.contact { padding-block: clamp(5.5rem, 22vw, 8rem); background: var(--secondary); color: var(--text); text-align: left; }
 .contact .eyebrow { margin: 0 0 1.75rem; }
 .contact h2 { max-width: 17ch; }
-.contact > .container > p:not(.eyebrow) { max-width: 34rem; margin: 1.5rem 0 2rem; color: rgba(255, 255, 255, 0.82); }
+.contact > .container > p:not(.eyebrow) { max-width: 34rem; margin: 1.5rem 0 2rem; color: rgba(17, 16, 16, 0.72); }
 .contact .button { max-width: 24rem; }
 
-.footer { padding: 4.5rem 0 max(5.5rem, calc(env(safe-area-inset-bottom) + 4.5rem)); background: #261b18; color: rgba(255, 250, 245, 0.75); }
+.footer { padding: 4.5rem 0 max(5.5rem, calc(env(safe-area-inset-bottom) + 4.5rem)); background: var(--text); color: rgba(247, 247, 247, 0.75); }
 .footer-grid { display: grid; gap: 2.5rem; }
 .footer-brand { color: var(--white); }
 .footer-brand small { display: block; }
@@ -398,7 +402,7 @@ em {
 .footer-contact a,
 .footer-bottom a { display: flex; min-height: 2.75rem; align-items: center; }
 .footer-contact a { overflow-wrap: anywhere; }
-.footer-bottom { display: grid; gap: 1rem; margin-top: 3.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.12); font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.04em; }
+.footer-bottom { display: grid; gap: 1rem; margin-top: 3.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(247, 247, 247, 0.12); font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.04em; }
 
 .floating-whatsapp {
   position: fixed;
@@ -412,10 +416,10 @@ em {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(247, 247, 247, 0.14);
   background: var(--primary);
   color: var(--white);
-  box-shadow: 0 0.5rem 1.5rem rgba(33, 20, 16, 0.18);
+  box-shadow: 0 0.5rem 1.5rem rgba(17, 16, 16, 0.18);
   font-family: var(--font-display);
   font-size: 0.75rem;
   opacity: 0;
@@ -494,7 +498,7 @@ em {
   .header-cta { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.5rem; border-bottom: 1px solid currentColor; font-family: var(--font-display); font-size: 0.8rem; }
   .hero { padding: 9.5rem 0 5rem; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
-  .hero-side { position: absolute; right: 1rem; bottom: 3rem; display: block; margin: 0; writing-mode: vertical-rl; color: rgba(255, 255, 255, 0.45); font-size: 0.58rem; letter-spacing: 0.16em; }
+  .hero-side { position: absolute; right: 1rem; bottom: 3rem; display: block; margin: 0; writing-mode: vertical-rl; color: rgba(246, 235, 218, 0.45); font-size: 0.58rem; letter-spacing: 0.16em; }
   .about-grid { grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr); gap: 6rem; align-items: end; }
   .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
@@ -519,10 +523,10 @@ em {
   .button:hover { transform: translateY(-0.2rem); }
   .project:hover .project-media { transform: scale(0.985); }
   .project-controls button:not(:disabled):hover { background: var(--primary); color: var(--white); }
-  .service:hover { background: rgba(255, 250, 245, 0.36); }
+  .service:hover { background: rgba(247, 247, 247, 0.36); }
   .service:hover .service-action { transform: translateX(0.2rem); }
   .behance-link:hover { color: var(--secondary); }
-  .floating-whatsapp:hover { transform: translateY(-0.15rem); background: #4a2d25; }
+  .floating-whatsapp:hover { transform: translateY(-0.15rem); background: var(--text); }
   .menu a:hover::after,
   .footer nav a:hover::after { right: 0; }
 }
