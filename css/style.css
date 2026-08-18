@@ -333,6 +333,7 @@ em {
 .project-media video { width: 100%; height: 100%; object-fit: cover; }
 .identity-showcase { margin-top: clamp(5rem, 12vw, 8rem); padding-top: 2rem; border-top: 1px solid var(--line); }
 .identity-title { margin-bottom: 2rem; font-size: clamp(2rem, 8vw, 3.5rem); }
+.identity-grid { grid-auto-columns: minmax(14rem, 78%); }
 .identity-media { aspect-ratio: 9 / 16; background: var(--surface); }
 .identity-media img { width: 100%; height: 100%; object-fit: cover; }
 .project-controls { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
@@ -435,6 +436,7 @@ em {
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
   .project-grid { grid-auto-columns: 55%; gap: 1.5rem; }
+  .identity-grid { grid-auto-columns: 42%; }
   .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
   .manifesto-copy { grid-template-columns: minmax(4rem, 1fr) minmax(0, 1fr); }
   .contact { text-align: center; }
@@ -480,6 +482,7 @@ em {
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
   .service-action { grid-column: 4; }
   .project-grid { grid-auto-columns: 38%; }
+  .identity-grid { grid-auto-columns: 28%; }
   .manifesto { padding-block: 10rem; }
   .manifesto h2 { margin: 3.5rem 0 5rem; }
   .footer { padding-bottom: 2rem; }
