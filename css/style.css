@@ -313,7 +313,7 @@ em {
 
 .project-grid {
   display: grid;
-  grid-auto-columns: minmax(16rem, 86%);
+  grid-auto-columns: minmax(17rem, 90%);
   grid-auto-flow: column;
   gap: 1rem;
   padding-bottom: 0.75rem;
@@ -436,7 +436,7 @@ em {
   .about-grid { gap: 3rem; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
-  .project-grid { grid-auto-columns: calc((100% - 1.5rem) / 2); gap: 1.5rem; }
+  .project-grid { grid-auto-columns: 55%; gap: 1.5rem; }
   .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
   .manifesto-copy { grid-template-columns: minmax(4rem, 1fr) minmax(0, 1fr); }
   .contact { text-align: center; }
@@ -481,7 +481,7 @@ em {
   .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
   .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
   .service-action { grid-column: 4; }
-  .project-grid { grid-auto-columns: calc((100% - 3rem) / 3); }
+  .project-grid { grid-auto-columns: 38%; }
   .manifesto { padding-block: 10rem; }
   .manifesto h2 { margin: 3.5rem 0 5rem; }
   .footer { padding-bottom: 2rem; }
