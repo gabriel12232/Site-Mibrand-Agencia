@@ -100,6 +100,18 @@
   addEventListener('scroll', onScroll, { passive: true });
 
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const projectVideos = document.querySelectorAll('.project-media video');
+
+  if (!reducedMotion && projectVideos.length) {
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.play().catch(() => {});
+        else entry.target.pause();
+      });
+    }, { threshold: 0.35 });
+    projectVideos.forEach(video => videoObserver.observe(video));
+  }
+
   const projectTrack = document.querySelector('[data-project-track]');
   const projectPrevious = document.querySelector('[data-project-prev]');
   const projectNext = document.querySelector('[data-project-next]');
