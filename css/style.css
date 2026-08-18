@@ -508,7 +508,6 @@ em {
 
 @media (min-width: 80rem) {
   :root { --container: min(100% - 6rem, 80rem); }
-  .project-grid { grid-auto-columns: calc((100% - 4.5rem) / 4); }
   .project-media { padding: 2rem; }
 }
 
