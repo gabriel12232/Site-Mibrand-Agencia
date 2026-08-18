@@ -112,32 +112,33 @@
     projectVideos.forEach(video => videoObserver.observe(video));
   }
 
-  const projectTrack = document.querySelector('[data-project-track]');
-  const projectPrevious = document.querySelector('[data-project-prev]');
-  const projectNext = document.querySelector('[data-project-next]');
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+    const carouselTrack = carousel.querySelector('[data-carousel-track]');
+    const carouselPrevious = carousel.querySelector('[data-carousel-prev]');
+    const carouselNext = carousel.querySelector('[data-carousel-next]');
+    if (!carouselTrack || !carouselPrevious || !carouselNext) return;
 
-  if (projectTrack && projectPrevious && projectNext) {
-    const updateProjectControls = () => {
-      const maxScroll = projectTrack.scrollWidth - projectTrack.clientWidth;
-      projectPrevious.disabled = projectTrack.scrollLeft <= 2;
-      projectNext.disabled = projectTrack.scrollLeft >= maxScroll - 2;
+    const updateCarouselControls = () => {
+      const maxScroll = carouselTrack.scrollWidth - carouselTrack.clientWidth;
+      carouselPrevious.disabled = carouselTrack.scrollLeft <= 2;
+      carouselNext.disabled = carouselTrack.scrollLeft >= maxScroll - 2;
     };
-    const moveProjects = direction => {
-      const firstProject = projectTrack.querySelector('.project');
-      if (!firstProject) return;
-      const gap = parseFloat(getComputedStyle(projectTrack).columnGap) || 0;
-      projectTrack.scrollBy({
-        left: direction * (firstProject.getBoundingClientRect().width + gap),
+    const moveCarousel = direction => {
+      const firstItem = carouselTrack.firstElementChild;
+      if (!firstItem) return;
+      const gap = parseFloat(getComputedStyle(carouselTrack).columnGap) || 0;
+      carouselTrack.scrollBy({
+        left: direction * (firstItem.getBoundingClientRect().width + gap),
         behavior: reducedMotion ? 'auto' : 'smooth'
       });
     };
 
-    projectPrevious.addEventListener('click', () => moveProjects(-1));
-    projectNext.addEventListener('click', () => moveProjects(1));
-    projectTrack.addEventListener('scroll', updateProjectControls, { passive: true });
-    addEventListener('resize', updateProjectControls);
-    updateProjectControls();
-  }
+    carouselPrevious.addEventListener('click', () => moveCarousel(-1));
+    carouselNext.addEventListener('click', () => moveCarousel(1));
+    carouselTrack.addEventListener('scroll', updateCarouselControls, { passive: true });
+    addEventListener('resize', updateCarouselControls);
+    updateCarouselControls();
+  });
 
   if (reducedMotion) {
     document.querySelectorAll('.reveal').forEach(item => item.classList.add('visible'));
