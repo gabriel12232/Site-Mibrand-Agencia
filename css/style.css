@@ -241,8 +241,7 @@ em {
 
 .hero-grid { display: grid; gap: 3rem; }
 .hero-copy { width: min(100%, 58rem); min-width: 0; }
-.eyebrow,
-.section-label {
+.eyebrow {
   font-family: var(--font-display);
   font-size: 0.68rem;
   font-weight: 600;
@@ -280,10 +279,6 @@ em {
 .hero-side { display: none; }
 
 .section { padding-block: var(--section-space); }
-.section-label { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); padding-bottom: 1rem; border-bottom: 1px solid var(--line); color: var(--text-muted); }
-.about-grid,
-.services-head,
-.work-head { margin-top: 2.75rem; }
 .about-grid { display: grid; gap: 2rem; }
 .about-grid > div { max-width: 38rem; }
 .about-grid p { margin: 0; }
@@ -436,7 +431,6 @@ em {
   .brand img { width: 2.5rem; height: 2.5rem; }
   .hero { padding: 8rem 0 5rem; }
   .hero h1 { max-width: 11ch; }
-  .section-label { grid-template-columns: 4rem minmax(0, 1fr); }
   .about-grid { gap: 3rem; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
