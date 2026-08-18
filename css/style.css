@@ -321,6 +321,7 @@ em {
   scrollbar-width: thin;
 }
 .project-grid:focus-visible { outline-offset: 0.4rem; }
+[data-carousel] { position: relative; }
 .project { min-width: 0; scroll-snap-align: start; }
 .project-media {
   width: 100%;
@@ -335,21 +336,36 @@ em {
 .identity-grid { grid-auto-columns: minmax(14rem, 78%); }
 .identity-media { aspect-ratio: 9 / 16; background: var(--surface); }
 .identity-media img { width: 100%; height: 100%; object-fit: cover; }
-.project-controls { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.project-controls {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
 .project-controls button {
   display: inline-grid;
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
   place-items: center;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(246, 235, 218, 0.62);
   border-radius: 50%;
-  color: var(--text);
+  background: rgba(53, 32, 25, 0.82);
+  box-shadow: 0 0.35rem 1.2rem rgba(17, 16, 16, 0.16);
+  color: var(--background);
   font-family: var(--font-display);
   font-size: 1.1rem;
-  transition: color 0.25s var(--ease), background 0.25s var(--ease), opacity 0.25s var(--ease);
+  pointer-events: auto;
+  backdrop-filter: blur(0.35rem);
+  transition: color 0.25s var(--ease), background 0.25s var(--ease), opacity 0.25s var(--ease), transform 0.25s var(--ease);
 }
-.project-controls button:disabled { opacity: 0.32; cursor: default; }
+.project-controls button:disabled { opacity: 0; pointer-events: none; }
 
 .behance-link {
   display: flex;
