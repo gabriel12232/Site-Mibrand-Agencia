@@ -120,14 +120,17 @@ em {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
-  color: var(--white);
+  border-bottom: 1px solid var(--line);
+  background: rgba(247, 247, 247, 0.97);
+  color: var(--text);
+  backdrop-filter: blur(12px);
   transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
 .header.scrolled,
 .header.menu-active {
   border-bottom: 1px solid var(--line);
-  background: rgba(246, 235, 218, 0.96);
+  background: rgba(247, 247, 247, 0.97);
   color: var(--text);
   backdrop-filter: blur(12px);
 }
@@ -166,11 +169,8 @@ em {
   transition: opacity 0.25s var(--ease);
 }
 
-.brand-logo-brown { opacity: 0; }
-.header.scrolled .brand-logo-light,
-.header.menu-active .brand-logo-light { opacity: 0; }
-.header.scrolled .brand-logo-brown,
-.header.menu-active .brand-logo-brown { opacity: 1; }
+.header .brand-logo-light { opacity: 0; }
+.header .brand-logo-brown { opacity: 1; }
 
 .brand > span { display: flex; flex-direction: column; line-height: 1; }
 .brand b { font-family: var(--font-display); font-size: 0.74rem; letter-spacing: 0.16em; }
@@ -386,21 +386,22 @@ em {
 .behance-link {
   display: flex;
   width: 100%;
-  min-height: 3.25rem;
+  min-height: 3.75rem;
   margin-top: 2.5rem;
+  padding: 0.85rem 1rem;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-bottom: 1px solid currentColor;
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--background);
   font-family: var(--font-display);
   font-size: 0.9rem;
 }
 
 .manifesto { padding-block: clamp(6rem, 24vw, 8rem); background: var(--primary); color: var(--white); }
 .manifesto > .container > p { margin: 0; font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.16em; }
-.manifesto h2 { max-width: 16ch; margin: 2.25rem 0 3.5rem; }
-.manifesto-copy { display: grid; grid-template-columns: 1.5rem minmax(0, 1fr); gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid rgba(247, 247, 247, 0.2); }
-.manifesto-copy p { max-width: 34rem; margin: 0; color: rgba(247, 247, 247, 0.7); }
+.manifesto h2 { max-width: 16ch; margin: 2.25rem 0 0; }
 
 .contact { padding-block: clamp(5.5rem, 22vw, 8rem); background: var(--secondary); color: var(--text); text-align: left; }
 .contact h2 { max-width: 17ch; }
@@ -415,7 +416,17 @@ em {
 .footer nav a,
 .footer-contact a,
 .footer-bottom a { display: flex; min-height: 2.75rem; align-items: center; }
-.footer-contact a { overflow-wrap: anywhere; }
+.footer-contact a { gap: 0.75rem; overflow-wrap: anywhere; }
+.footer-icon {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(247, 247, 247, 0.28);
+  border-radius: 50%;
+}
+.footer-icon img { width: 0.95rem; height: 0.95rem; }
 .footer-bottom { display: grid; gap: 1rem; margin-top: 3.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(247, 247, 247, 0.12); font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.04em; }
 
 .floating-whatsapp {
@@ -466,8 +477,7 @@ em {
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
   .project-grid { grid-auto-columns: 55%; gap: 1.5rem; }
   .identity-grid { grid-auto-columns: 42%; }
-  .behance-link { width: fit-content; margin-left: auto; gap: 2rem; }
-  .manifesto-copy { grid-template-columns: minmax(4rem, 1fr) minmax(0, 1fr); }
+  .behance-link { width: min(100%, 36rem); margin-left: auto; gap: 2rem; }
   .contact { text-align: center; }
   .contact h2,
   .contact .button { margin-right: auto; margin-left: auto; }
@@ -512,7 +522,7 @@ em {
   .project-grid { grid-auto-columns: 38%; }
   .identity-grid { grid-auto-columns: 28%; }
   .manifesto { padding-block: 10rem; }
-  .manifesto h2 { margin: 3.5rem 0 5rem; }
+  .manifesto h2 { margin: 3.5rem 0 0; }
   .footer { padding-bottom: 2rem; }
   .footer-grid { grid-template-columns: 1.5fr 0.6fr 1fr; }
 }
@@ -531,7 +541,7 @@ em {
   .project-controls button:not(:disabled):hover { background: var(--primary); color: var(--white); }
   .service:hover { background: rgba(247, 247, 247, 0.36); }
   .service:hover .service-action { transform: translateX(0.2rem); }
-  .behance-link:hover { color: var(--secondary); }
+  .behance-link:hover { background: var(--text); color: var(--background); }
   .floating-whatsapp:hover { transform: translateY(-0.15rem); background: var(--text); }
   .menu a:hover::after,
   .footer nav a:hover::after { right: 0; }
