@@ -156,30 +156,24 @@
 
   const floatingWhatsApp = document.querySelector('.floating-whatsapp');
   const heroActions = document.querySelector('.hero .actions');
-  if (floatingWhatsApp) {
-    const floatingBlockers = new Set();
-    let heroActionsPassed = !heroActions;
-    const updateFloatingWhatsApp = () => {
-      floatingWhatsApp.classList.toggle('is-visible', heroActionsPassed && floatingBlockers.size === 0);
-    };
-    if (heroActions) {
-      const heroActionsObserver = new IntersectionObserver(([entry]) => {
-        heroActionsPassed = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
-        updateFloatingWhatsApp();
-      }, { threshold: 0 });
-      heroActionsObserver.observe(heroActions);
-    }
-    const blockerObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) floatingBlockers.add(entry.target);
-        else floatingBlockers.delete(entry.target);
-      });
-      updateFloatingWhatsApp();
-    }, { threshold: 0.05 });
-    document.querySelectorAll('.contact, .footer').forEach(section => blockerObserver.observe(section));
+  const floatingBlockers = new Set();
+  let heroActionsPassed = false;
+  const updateFloatingWhatsApp = () => {
+    floatingWhatsApp.classList.toggle('is-visible', heroActionsPassed && floatingBlockers.size === 0);
+  };
+  const heroActionsObserver = new IntersectionObserver(([entry]) => {
+    heroActionsPassed = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
     updateFloatingWhatsApp();
-  }
+  }, { threshold: 0 });
+  const blockerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) floatingBlockers.add(entry.target);
+      else floatingBlockers.delete(entry.target);
+    });
+    updateFloatingWhatsApp();
+  }, { threshold: 0.05 });
+  heroActionsObserver.observe(heroActions);
+  document.querySelectorAll('.contact, .footer').forEach(section => blockerObserver.observe(section));
 
-  const year = document.querySelector('#year');
-  if (year) year.textContent = new Date().getFullYear();
+  document.querySelector('#year').textContent = new Date().getFullYear();
 })();
