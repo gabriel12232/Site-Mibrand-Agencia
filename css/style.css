@@ -399,8 +399,8 @@ em {
   font-size: 0.9rem;
 }
 
-.manifesto { padding-block: clamp(3rem, 10vw, 5rem); background: var(--surface); color: var(--white); }
-.manifesto > .container { width: min(100% - 2rem, 70rem); padding: clamp(2.5rem, 8vw, 5rem); background: var(--primary); }
+.manifesto { padding-block: 0; background: var(--primary); color: var(--white); }
+.manifesto > .container { width: 100%; max-width: none; padding: clamp(2.5rem, 8vw, 5rem) max(2rem, calc((100vw - 76rem) / 2)); background: var(--primary); }
 .manifesto > .container > p { margin: 0; color: rgba(247, 247, 247, 0.68); font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.16em; }
 .manifesto h2 { max-width: 18ch; margin: 2.25rem 0 0; }
 .manifesto em { color: var(--secondary); }
@@ -486,10 +486,12 @@ em {
 .history-section { background: var(--surface); }
 .since { margin: 1.25rem 0 0; color: var(--secondary); font-family: var(--font-editorial); font-size: clamp(1.4rem, 5vw, 2rem); font-style: italic; }
 .founders-heading { display: flex; margin-bottom: clamp(4rem, 12vw, 8rem); align-items: baseline; justify-content: space-between; gap: 2rem; }
+.founders-section > .container { width: 100%; max-width: none; }
+.founders-heading { width: min(100% - 2rem, 76rem); margin-inline: auto; }
 .founders-heading .about-index { margin: 0; }
 .founders-heading h2 { color: var(--primary); font-size: clamp(1rem, 4vw, 1.35rem); font-weight: 600; letter-spacing: 0.12em; }
 .founders-heading h2 span { color: var(--secondary); }
-.founder { display: grid; gap: clamp(2rem, 7vw, 5rem); margin-top: 1rem; padding: clamp(2rem, 7vw, 5rem); background: var(--text); color: var(--white); }
+.founder { display: grid; gap: clamp(2rem, 7vw, 5rem); padding: clamp(2rem, 7vw, 5rem) max(2rem, calc((100vw - 76rem) / 2)); background: var(--text); color: var(--white); }
 .founder-photo {
   display: grid;
   width: clamp(5.5rem, 18vw, 8rem);
@@ -583,7 +585,7 @@ em {
   .service-action { grid-column: 4; }
   .project-grid { grid-auto-columns: 38%; }
   .identity-grid { grid-auto-columns: 28%; }
-  .manifesto { padding-block: 5rem; }
+  .manifesto { padding-block: 0; }
   .manifesto h2 { margin: 3.5rem 0 0; }
   .footer { padding-bottom: 2rem; }
   .footer-grid { grid-template-columns: 1.5fr 0.6fr 1fr; }
