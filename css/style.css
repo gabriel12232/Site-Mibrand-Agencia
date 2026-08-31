@@ -493,17 +493,13 @@ em {
 .founders-heading h2 span { color: var(--secondary); }
 .founder { display: grid; gap: clamp(2rem, 7vw, 5rem); padding: clamp(2rem, 7vw, 5rem) max(2rem, calc((100vw - 76rem) / 2)); background: var(--text); color: var(--white); }
 .founder-photo {
-  display: grid;
+  display: block;
   width: clamp(5.5rem, 18vw, 8rem);
   aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid rgba(247, 247, 247, 0.28);
+  height: auto;
+  border: 0;
   border-radius: 50%;
-  background: var(--primary);
-  color: var(--background);
-  font-family: var(--font-editorial);
-  font-size: clamp(1.2rem, 5vw, 1.8rem);
-  font-style: italic;
+  object-fit: cover;
 }
 .founder-content { max-width: 42rem; }
 .founder-content h3 { color: var(--white); font-size: clamp(2.3rem, 9vw, 4.5rem); }
