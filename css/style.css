@@ -494,11 +494,11 @@ em {
 .founder { display: grid; gap: clamp(2rem, 7vw, 5rem); padding: clamp(2rem, 7vw, 5rem) max(2rem, calc((100vw - 76rem) / 2)); background: var(--text); color: var(--white); }
 .founder-photo {
   display: block;
-  width: clamp(5.5rem, 18vw, 8rem);
+  width: clamp(7rem, 22.5vw, 10rem);
   aspect-ratio: 1;
   height: auto;
   border: 0;
-  border-radius: 50%;
+  clip-path: circle(40% at 50% 50%);
   object-fit: cover;
 }
 .founder-content { max-width: 42rem; }
