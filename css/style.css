@@ -498,7 +498,7 @@ em {
   aspect-ratio: 1;
   height: auto;
   border: 0;
-  clip-path: circle(40% at 50% 50%);
+  clip-path: circle(39% at 50% 46%);
   object-fit: cover;
 }
 .founder-content { max-width: 42rem; }
