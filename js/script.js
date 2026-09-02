@@ -140,18 +140,17 @@
     updateCarouselControls();
   });
 
-  /* Substitua somente os campos abaixo pelas avaliações reais do Google. */
+  /* Avaliações reais do perfil da MIBRAND no Google. */
   const reviews = [
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
-    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' }
+    { name: 'Delika Gourmet', rating: 5, text: 'A melhor agência!!! Me atendeu super bem e tive ótimos resultados.' },
+    { name: 'Moacir Malaquias', rating: 5, text: 'Olá, Estou muito satisfeito com os serviços prestados pela Mibrand na gestão do meu Instagram. A equipe é extremamente profissional e cumpre os prazos estabelecidos para a entrega de conteúdos. A qualidade das postagens é excelente, sempre alinhada com a identidade da minha marca e com uma boa variedade de formatos. Além disso, a equipe entende os melhores horários para publicar, maximizando o engajamento. Muito obrigado Lari.' },
+    { name: 'Laura Jacob', rating: 5, text: 'Tivemos uma experiência incrível com a Larissa e toda a equipe! A cobertura dos nossos eventos foi feita com muito cuidado, atenção aos detalhes e um olhar extremamente sensível para registrar cada momento. A Larissa foi super cuidadosa e profissional, sempre atenta às nossas necessidades, e a entrega dos conteúdos foi muito rápida, o que fez toda a diferença para nós. Tanto no evento de make quanto no evento voltado ao meio médico, o resultado ficou impecável! Sem dúvidas, uma equipe que transmite profissionalismo, dedicação e muito carinho em cada trabalho. Recomendo de olhos fechados! 🩷' },
+    { name: 'GABRIELE CRISTINA SILVA FANHANI', rating: 5, text: 'As meninas são perfeitas, todos os videos e fotos que fizemos ficaram sensacionais. Pegam seu melhor angulo e as legendas/ musicas dos videos os fazem viralizar mais. Obrigada 🤎🤎🤎 …' },
+    { name: 'Natalia Paiva', rating: 5, text: 'Amei muito, a equipe foi simplesmente incrível e atenciosa com os detalhes, parabéns pelo trabalho, super indico!' },
+    { name: 'Gabriela Signori', rating: 5, text: 'Tive uma ótima experiência com a MIBRAND! O trabalho de videomaker e edição ficou incrível, com uma produção super profissional e um resultado que valorizou muito o evento. Equipe atenciosa, criativa e muito competente. Recomendo demais!' },
+    { name: 'larissa silva vieira', rating: 5, text: 'Eu amei demais a Lari, ela é incrível em tudo o que ela faz, além de ser super atenciosa o trabalho dela é incrível! Gente ela gravou meu trabalho e editou tudo!!! Ficou perfeito 😍 …' },
+    { name: 'Giovanna Martins', rating: 5, text: 'Maravilhosas!!! Trabalho lindo, e super profissionais. O meu instagram esta ficando impecável.' },
+    { name: 'GABRIELLY MANHA PICCIRILLO', rating: 5, text: 'Foi INCRÍVEL! Na verdade, acho que incrível é pouco, o serviço de vocês foi IMPECÁVEL. Além de profissionais incríveis, são simpáticos, pacientes, nos ajudam quando não temos nada me mente. Eu com certeza contratarei novamente e recomendei e recomendarei para todos que eu puder.' }
   ];
 
   const reviewsCarousel = document.querySelector('[data-reviews-carousel]');
