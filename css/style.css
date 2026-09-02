@@ -422,10 +422,8 @@ em {
 .review-card blockquote { margin: 1.25rem 0; padding-right: 0.5rem; overflow-y: auto; color: var(--text); font-family: var(--font-editorial); font-size: clamp(1.1rem, 4vw, 1.35rem); font-style: italic; line-height: 1.35; scrollbar-color: var(--secondary) transparent; scrollbar-width: thin; }
 .review-card footer { display: grid; gap: 0.1rem; color: var(--text-muted); font-size: 0.76rem; }
 .review-card footer strong { color: var(--text); font-family: var(--font-display); font-size: 0.82rem; font-weight: 500; }
-.reviews-navigation { display: flex; width: fit-content; margin: 2rem auto 0; align-items: center; justify-content: center; }
-.reviews-navigation button { position: absolute; z-index: 2; top: 8.625rem; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid rgba(247, 247, 247, 0.34); border-radius: 50%; background: var(--primary); color: var(--white); cursor: pointer; transition: background 0.25s var(--ease), transform 0.25s var(--ease); }
-.reviews-navigation [data-reviews-prev] { left: 0.5rem; }
-.reviews-navigation [data-reviews-next] { right: 0.5rem; }
+.reviews-navigation { display: grid; grid-template-columns: 2.75rem auto 2.75rem; width: fit-content; margin: 2rem auto 0; align-items: center; gap: 1rem; }
+.reviews-navigation button { width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid rgba(247, 247, 247, 0.34); border-radius: 50%; background: var(--primary); color: var(--white); cursor: pointer; transition: background 0.25s var(--ease), transform 0.25s var(--ease); }
 .reviews-count { min-width: 4.5rem; color: var(--text-muted); font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.12em; text-align: center; }
 .reviews-link { display: flex; width: fit-content; min-height: 3.5rem; margin-top: clamp(2.5rem, 8vw, 4rem); align-items: center; gap: 1rem; border-bottom: 1px solid var(--primary); color: var(--primary); font-family: var(--font-display); font-size: 0.82rem; }
 
@@ -616,6 +614,8 @@ em {
   .project-grid { grid-auto-columns: 38%; }
   .identity-grid { grid-auto-columns: 28%; }
   .reviews-track { grid-auto-columns: calc((100% - 3rem) / 3); }
+  .reviews-navigation { display: flex; justify-content: center; }
+  .reviews-navigation button { position: absolute; z-index: 2; top: 8.625rem; }
   .reviews-navigation [data-reviews-prev] { left: -1.375rem; }
   .reviews-navigation [data-reviews-next] { right: -1.375rem; }
   .footer { padding-bottom: 2rem; }
