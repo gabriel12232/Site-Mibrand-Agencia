@@ -399,9 +399,6 @@ em {
 .reviews-head { display: grid; gap: clamp(2.5rem, 8vw, 5rem); align-items: end; }
 .reviews-eyebrow { margin: 0 0 1.5rem; color: var(--primary); font-family: var(--font-display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; }
 .reviews h2 { max-width: 12ch; }
-.reviews-summary { display: grid; width: fit-content; gap: 0.15rem; color: var(--text-muted); font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.04em; }
-.reviews-summary strong { color: var(--primary); font-size: clamp(2.7rem, 10vw, 4.5rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
-.reviews-stars { color: var(--primary); font-size: 0.8rem; letter-spacing: 0.2em; }
 .reviews-carousel { position: relative; margin-top: clamp(3.5rem, 10vw, 6rem); }
 .reviews-track {
   display: grid;
@@ -566,7 +563,6 @@ em {
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
   .project-grid { grid-auto-columns: 55%; gap: 1.5rem; }
   .identity-grid { grid-auto-columns: 42%; }
-  .reviews-head { grid-template-columns: minmax(0, 1.25fr) minmax(12rem, 0.75fr); }
   .reviews-track { grid-auto-columns: calc((100% - 1.5rem) / 2); gap: 1.5rem; }
   .behance-link { width: min(100%, 36rem); margin-left: auto; gap: 2rem; }
   .contact { text-align: center; }
