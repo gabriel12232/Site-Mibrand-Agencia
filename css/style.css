@@ -421,9 +421,9 @@ em {
 }
 .reviews-track::-webkit-scrollbar { display: none; }
 .reviews-track.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
-.review-card { display: flex; min-height: clamp(19rem, 68vw, 23rem); padding: clamp(1.75rem, 6vw, 2.75rem); flex-direction: column; justify-content: space-between; border: 1px solid var(--line); background: var(--surface); scroll-snap-align: start; }
+.review-card { display: grid; height: 20rem; padding: clamp(1.25rem, 4vw, 1.75rem); grid-template-rows: auto minmax(0, 1fr) auto; border: 1px solid var(--line); background: var(--surface); scroll-snap-align: start; }
 .review-card-stars { color: var(--primary); font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.18em; }
-.review-card blockquote { margin: clamp(2.5rem, 9vw, 4rem) 0; color: var(--text); font-family: var(--font-editorial); font-size: clamp(1.35rem, 5.5vw, 1.8rem); font-style: italic; line-height: 1.35; }
+.review-card blockquote { margin: 1.25rem 0; padding-right: 0.5rem; overflow-y: auto; color: var(--text); font-family: var(--font-editorial); font-size: clamp(1.1rem, 4vw, 1.35rem); font-style: italic; line-height: 1.35; scrollbar-color: var(--secondary) transparent; scrollbar-width: thin; }
 .review-card footer { display: grid; gap: 0.1rem; color: var(--text-muted); font-size: 0.76rem; }
 .review-card footer strong { color: var(--text); font-family: var(--font-display); font-size: 0.82rem; font-weight: 500; }
 .reviews-navigation { display: grid; grid-template-columns: 2.75rem auto 2.75rem; width: fit-content; margin: 2rem auto 0; align-items: center; gap: 1rem; }
@@ -570,7 +570,6 @@ em {
   .identity-grid { grid-auto-columns: 42%; }
   .reviews-head { grid-template-columns: minmax(0, 1.25fr) minmax(12rem, 0.75fr); }
   .reviews-track { grid-auto-columns: calc((100% - 1.5rem) / 2); gap: 1.5rem; }
-  .review-card { min-height: 24rem; }
   .behance-link { width: min(100%, 36rem); margin-left: auto; gap: 2rem; }
   .contact { text-align: center; }
   .contact h2,
