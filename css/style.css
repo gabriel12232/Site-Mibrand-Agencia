@@ -173,7 +173,7 @@ em {
 
 .brand > span { display: flex; flex-direction: column; line-height: 1; }
 .brand b { font-family: var(--font-display); font-size: 0.74rem; letter-spacing: 0.16em; }
-.brand small { display: none; margin-top: 0.35rem; font-family: var(--font-display); font-size: 0.56rem; letter-spacing: 0.08em; }
+.brand small { display: block; margin-top: 0.35rem; font-family: var(--font-display); font-size: 0.56rem; letter-spacing: 0.08em; }
 
 .menu-toggle {
   position: relative;
@@ -549,7 +549,6 @@ em {
 
 @media (min-width: 30rem) {
   :root { --container: min(100% - 2.5rem, 76rem); }
-  .brand small { display: block; }
   .actions { grid-template-columns: minmax(0, 14rem) minmax(0, 13rem); align-items: center; }
   .text-link { width: auto; }
 }
