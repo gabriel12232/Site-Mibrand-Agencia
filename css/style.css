@@ -119,18 +119,18 @@ em {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
-  border-bottom: 1px solid var(--line);
-  background: rgba(247, 247, 247, 0.97);
-  color: var(--text);
+  border-bottom: 1px solid rgba(247, 247, 247, 0.14);
+  background: rgba(53, 32, 25, 0.98);
+  color: var(--white);
   backdrop-filter: blur(12px);
   transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
 .header.scrolled,
 .header.menu-active {
-  border-bottom: 1px solid var(--line);
-  background: rgba(247, 247, 247, 0.97);
-  color: var(--text);
+  border-bottom: 1px solid rgba(247, 247, 247, 0.14);
+  background: rgba(53, 32, 25, 0.98);
+  color: var(--white);
   backdrop-filter: blur(12px);
 }
 
@@ -168,8 +168,8 @@ em {
   transition: opacity 0.25s var(--ease);
 }
 
-.header .brand-logo-light { opacity: 0; }
-.header .brand-logo-brown { opacity: 1; }
+.header .brand-logo-light { opacity: 1; }
+.header .brand-logo-brown { opacity: 0; }
 
 .brand > span { display: flex; flex-direction: column; line-height: 1; }
 .brand b { font-family: var(--font-display); font-size: 0.74rem; letter-spacing: 0.16em; }
