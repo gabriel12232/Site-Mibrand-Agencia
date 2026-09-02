@@ -140,6 +140,101 @@
     updateCarouselControls();
   });
 
+  /* Substitua somente os campos abaixo pelas avaliações reais do Google. */
+  const reviews = [
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' },
+    { name: 'Nome do cliente', rating: 5, text: 'Inserir avaliação real do Google aqui' }
+  ];
+
+  const reviewsCarousel = document.querySelector('[data-reviews-carousel]');
+  if (reviewsCarousel) {
+    const reviewsTrack = reviewsCarousel.querySelector('[data-reviews-track]');
+    const reviewsPrevious = reviewsCarousel.querySelector('[data-reviews-prev]');
+    const reviewsNext = reviewsCarousel.querySelector('[data-reviews-next]');
+    const reviewsCount = reviewsCarousel.querySelector('[data-reviews-count]');
+    const formatReviewNumber = number => String(number).padStart(2, '0');
+
+    reviewsTrack.innerHTML = reviews.map((review, index) => {
+      const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
+      return `<article class="review-card reveal" aria-label="Avaliação ${index + 1} de ${reviews.length}">
+        <span class="review-card-stars" aria-label="${rating} de 5 estrelas">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
+        <blockquote>“${review.text}”</blockquote>
+        <footer><strong>${review.name}</strong><span>Avaliação no Google</span></footer>
+      </article>`;
+    }).join('');
+
+    const reviewStep = () => {
+      const firstReview = reviewsTrack.firstElementChild;
+      if (!firstReview) return 0;
+      return firstReview.getBoundingClientRect().width + (parseFloat(getComputedStyle(reviewsTrack).columnGap) || 0);
+    };
+    const currentReview = () => Math.min(reviews.length - 1, Math.max(0, Math.round(reviewsTrack.scrollLeft / reviewStep())));
+    const updateReviewCount = () => {
+      reviewsCount.textContent = `${formatReviewNumber(currentReview() + 1)} / ${formatReviewNumber(reviews.length)}`;
+    };
+    const moveReviews = direction => {
+      const current = currentReview();
+      const target = direction > 0
+        ? (current + 1) % reviews.length
+        : (current - 1 + reviews.length) % reviews.length;
+      reviewsTrack.scrollTo({ left: target * reviewStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
+    };
+
+    reviewsPrevious.addEventListener('click', () => moveReviews(-1));
+    reviewsNext.addEventListener('click', () => moveReviews(1));
+    reviewsTrack.addEventListener('scroll', updateReviewCount, { passive: true });
+    addEventListener('resize', updateReviewCount);
+
+    let dragging = false;
+    let dragStartX = 0;
+    let dragStartScroll = 0;
+    reviewsTrack.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'touch') return;
+      dragging = true;
+      dragStartX = event.clientX;
+      dragStartScroll = reviewsTrack.scrollLeft;
+      reviewsTrack.classList.add('is-dragging');
+      reviewsTrack.setPointerCapture(event.pointerId);
+    });
+    reviewsTrack.addEventListener('pointermove', event => {
+      if (dragging) reviewsTrack.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+    });
+    const stopDragging = event => {
+      if (!dragging) return;
+      dragging = false;
+      reviewsTrack.classList.remove('is-dragging');
+      if (reviewsTrack.hasPointerCapture(event.pointerId)) reviewsTrack.releasePointerCapture(event.pointerId);
+      reviewsTrack.scrollTo({ left: currentReview() * reviewStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
+    };
+    reviewsTrack.addEventListener('pointerup', stopDragging);
+    reviewsTrack.addEventListener('pointercancel', stopDragging);
+
+    if (!reducedMotion && reviews.length > 1) {
+      let autoplay;
+      const stopAutoplay = () => clearInterval(autoplay);
+      const startAutoplay = () => {
+        stopAutoplay();
+        autoplay = setInterval(() => moveReviews(1), 6000);
+      };
+      reviewsCarousel.addEventListener('mouseenter', stopAutoplay);
+      reviewsCarousel.addEventListener('mouseleave', startAutoplay);
+      reviewsCarousel.addEventListener('focusin', stopAutoplay);
+      reviewsCarousel.addEventListener('focusout', startAutoplay);
+      reviewsCarousel.addEventListener('pointerdown', stopAutoplay);
+      reviewsCarousel.addEventListener('pointerup', startAutoplay);
+      startAutoplay();
+    }
+    updateReviewCount();
+  }
+
   if (reducedMotion) {
     document.querySelectorAll('.reveal').forEach(item => item.classList.add('visible'));
   } else {
