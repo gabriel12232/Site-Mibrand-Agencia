@@ -526,22 +526,22 @@ em {
 .founders-heading .about-index { margin: 0; }
 .founders-heading h2 { color: var(--primary); font-size: clamp(1rem, 4vw, 1.35rem); font-weight: 600; letter-spacing: 0.12em; }
 .founders-heading h2 span { color: var(--secondary); }
-.founder { display: grid; gap: clamp(2rem, 7vw, 5rem); padding: clamp(2rem, 7vw, 5rem) max(2rem, calc((100vw - 76rem) / 2)); background: var(--text); color: var(--white); }
+.founder { padding: clamp(2.5rem, 8vw, 5rem) max(2rem, calc((100vw - 76rem) / 2)); background: var(--text); color: var(--white); }
+.founder-intro { display: grid; max-width: 44rem; grid-template-columns: clamp(7.5rem, 28vw, 11rem) minmax(0, 1fr); align-items: center; gap: clamp(1.25rem, 5vw, 3rem); }
 .founder-photo {
   display: block;
-  width: clamp(9rem, 30vw, 15rem);
+  width: 100%;
   aspect-ratio: 1;
-  height: clamp(9rem, 30vw, 15rem);
+  height: auto;
   border: 0;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
 }
-.founder-content { max-width: 42rem; }
-.founder-content h3 { color: var(--white); font-size: clamp(2.3rem, 9vw, 4.5rem); }
+.founder-title h3 { color: var(--white); font-size: clamp(1.5rem, 6vw, 2.4rem); letter-spacing: -0.035em; }
 .founder .founder-number { color: rgba(247, 247, 247, 0.5); }
-.founder-role { margin: 0.75rem 0 2rem; color: var(--secondary); font-family: var(--font-editorial); font-size: clamp(1.2rem, 4vw, 1.5rem); font-style: italic; }
-.founder-bio { max-width: 38rem; }
+.founder-role { margin: 0 0 0.35rem; color: var(--white); font-family: var(--font-display); font-size: clamp(0.9rem, 3.8vw, 1.2rem); font-style: normal; line-height: 1.35; }
+.founder-bio { max-width: 38rem; margin-top: clamp(2.5rem, 8vw, 4rem); }
 .founder-bio p { color: rgba(247, 247, 247, 0.7); }
 
 .reveal { opacity: 0; transform: translateY(1rem); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
@@ -578,9 +578,7 @@ em {
   .about-intro-grid,
   .history-grid { grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr); align-items: start; }
   .home-about-grid { grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1.3fr); align-items: start; }
-  .founder { grid-template-columns: minmax(16rem, 0.85fr) minmax(0, 1.15fr); align-items: start; }
-  .founder-larissa .founder-photo { order: 2; }
-  .founder-larissa .founder-content { order: 1; }
+  .founder-intro { grid-template-columns: 12rem minmax(0, 1fr); }
 }
 
 @media (min-width: 64rem) {
