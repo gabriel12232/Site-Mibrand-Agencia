@@ -133,13 +133,6 @@ em {
   backdrop-filter: blur(12px);
 }
 
-.header.menu-active {
-  border-bottom: 1px solid var(--line);
-  background: var(--background);
-  color: var(--primary);
-  backdrop-filter: none;
-}
-
 .nav {
   display: flex;
   min-width: 0;
@@ -176,8 +169,6 @@ em {
 
 .header .brand-logo-light { opacity: 0; }
 .header .brand-logo-brown { opacity: 1; }
-.header.menu-active .brand-logo-light { opacity: 0; }
-.header.menu-active .brand-logo-brown { opacity: 1; }
 
 .brand > span { display: flex; flex-direction: column; line-height: 1; }
 .brand b { font-family: var(--font-display); font-size: 0.74rem; letter-spacing: 0.16em; }
