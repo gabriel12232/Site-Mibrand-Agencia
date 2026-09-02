@@ -244,17 +244,14 @@ em {
 .hero {
   position: relative;
   display: flex;
-  min-height: 100svh;
-  padding: 6.75rem 0 3rem;
+  min-height: auto;
+  padding: 6rem 0 2.5rem;
   align-items: center;
-  background-image: linear-gradient(90deg, rgba(35, 20, 15, 0.36) 0%, rgba(35, 20, 15, 0.14) 48%, rgba(35, 20, 15, 0) 78%), url("../assets/images/hero-agencia-mibrand.png");
-  background-position: 60% center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--primary);
   color: var(--white);
 }
 
-.hero-grid { display: grid; gap: 3rem; }
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; }
 .hero-copy { width: min(100%, 38rem); min-width: 0; }
 .eyebrow {
   font-family: var(--font-display);
@@ -270,6 +267,34 @@ em {
 .hero-text { max-width: 34rem; margin: 1.5rem 0 0; color: rgba(247, 247, 247, 0.78); }
 .hero .button-light { background: var(--white); color: var(--primary); }
 .hero .text-link { border-color: rgba(247, 247, 247, 0.35); color: rgba(247, 247, 247, 0.86); }
+
+.hero-collage {
+  position: relative;
+  width: 100%;
+  height: clamp(18rem, 72vw, 26rem);
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(0.9rem);
+  animation: hero-photo-in 0.75s var(--ease) forwards;
+}
+
+.hero-photo-main { z-index: 2; top: 0; left: 0; width: 61%; height: 88%; object-position: center 58%; }
+.hero-photo-secondary { z-index: 3; right: 0; bottom: 0; width: 48%; height: 75%; object-position: center; animation-delay: 0.12s; }
+.hero-photo-studio,
+.hero-photo-set { display: none; }
+
+@keyframes hero-photo-in {
+  to { opacity: 1; transform: none; }
+}
 
 .actions {
   display: grid;
@@ -293,17 +318,15 @@ em {
 .button-light { background: var(--primary); color: var(--white); }
 .text-link { padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
 
-.hero-side { display: none; }
-
 .section { padding-block: var(--section-space); }
 .about-grid { display: grid; gap: 2rem; }
 .about-grid > div { max-width: 38rem; }
 .about-grid p { margin: 0; }
 .about-grid p + p { margin-top: 1rem; color: var(--text-muted); }
 
-.services { padding-top: clamp(2rem, 7vw, 3.5rem); padding-bottom: clamp(1.5rem, 5vw, 3rem); background: var(--surface); }
+.services { padding-top: clamp(1.25rem, 4vw, 2.5rem); padding-bottom: clamp(1.5rem, 5vw, 3rem); background: var(--surface); }
 .work { padding-top: clamp(1.5rem, 5vw, 3rem); }
-.services-head { margin-bottom: 2.75rem; }
+.services-head { margin-bottom: clamp(1.75rem, 4vw, 2.5rem); }
 .work-head { margin-bottom: 2.75rem; }
 .service {
   display: grid;
@@ -321,7 +344,6 @@ em {
 .service-main { display: grid; gap: 0.65rem; }
 .service h3 { overflow-wrap: normal; }
 .service-main p { max-width: 34rem; margin: 0; color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; }
-.service-preview { display: none; }
 .service-action { grid-column: 2; justify-self: start; padding-top: 0.35rem; border-bottom: 1px solid currentColor; font-family: var(--font-display); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; line-height: 1.4; white-space: nowrap; transition: transform 0.25s var(--ease); }
 
 .project-grid {
@@ -565,8 +587,12 @@ em {
   .nav { height: 5.25rem; }
   .menu { top: 5.25rem; height: calc(100dvh - 5.25rem); }
   .brand-mark { width: 2.5rem; height: 2.5rem; }
-  .hero { padding: 8rem 0 5rem; background-position: 55% center; }
+  .hero { min-height: auto; padding: 8rem 0 4rem; }
   .hero h1 { max-width: 11ch; font-size: clamp(3.75rem, 7vw, 5rem); }
+  .hero-collage { height: 32rem; }
+  .hero-photo-main { left: 18%; width: 52%; height: 88%; }
+  .hero-photo-secondary { top: 0; right: 4%; bottom: auto; width: 32%; height: 51%; }
+  .hero-photo-studio { z-index: 3; bottom: 0; left: 2%; display: block; width: 33%; height: 52%; object-position: center; animation-delay: 0.22s; }
   .about-grid { gap: 3rem; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
@@ -613,12 +639,15 @@ em {
   .footer nav a::after { content: ""; position: absolute; right: 100%; bottom: 0.35rem; left: 0; height: 1px; background: currentColor; transition: right 0.25s var(--ease); }
   .mobile-menu-cta { display: none !important; }
   .header-cta { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 0.5rem; border-bottom: 1px solid currentColor; font-family: var(--font-display); font-size: 0.8rem; }
-  .hero { padding: 9.5rem 0 5rem; background-position: center; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); }
-  .hero-side { display: none; }
+  .hero { min-height: calc(100svh - 5.25rem); padding: 8.5rem 0 4rem; }
+  .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(30rem, 0.95fr); gap: clamp(3rem, 5vw, 6rem); }
+  .hero-collage { height: clamp(34rem, 70vh, 44rem); }
+  .hero-photo-main { z-index: 2; top: 9%; right: 0; left: auto; width: 52%; height: 71%; object-position: center 54%; }
+  .hero-photo-secondary { z-index: 3; top: 0; right: auto; left: 5%; width: 35%; height: 47%; object-position: center; }
+  .hero-photo-studio { z-index: 4; bottom: 3%; left: 0; width: 38%; height: 43%; object-position: center 58%; }
+  .hero-photo-set { z-index: 1; right: 7%; bottom: 0; display: block; width: 32%; height: 39%; object-position: center 66%; animation-delay: 0.32s; }
   .about-grid { grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr); gap: 6rem; align-items: end; }
   .service { grid-template-columns: 4rem minmax(15rem, 0.8fr) minmax(16rem, 1.2fr) max-content; min-height: 8rem; align-items: start; padding-block: 1.4rem; }
-  .service-preview { display: block; color: var(--text-muted); font-family: var(--font-display); font-size: 0.8rem; }
   .service-action { grid-column: 4; }
   .project-grid { grid-auto-columns: 38%; }
   .identity-grid { grid-auto-columns: 28%; }
