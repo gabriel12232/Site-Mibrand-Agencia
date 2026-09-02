@@ -422,7 +422,7 @@ em {
 .reviews-navigation { display: grid; grid-template-columns: 2.75rem auto 2.75rem; width: fit-content; margin: 2rem auto 0; align-items: center; gap: 1rem; }
 .reviews-navigation button { width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid rgba(247, 247, 247, 0.34); border-radius: 50%; background: var(--primary); color: var(--white); cursor: pointer; transition: background 0.25s var(--ease), transform 0.25s var(--ease); }
 .reviews-count { min-width: 4.5rem; color: var(--text-muted); font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.12em; text-align: center; }
-.reviews-link { display: flex; width: fit-content; min-height: 3.5rem; margin-top: clamp(2.5rem, 8vw, 4rem); align-items: center; gap: 1rem; border-bottom: 1px solid var(--primary); color: var(--primary); font-family: var(--font-display); font-size: 0.82rem; }
+.reviews-link { display: flex; width: 100%; min-height: 3.75rem; margin-top: clamp(2.5rem, 8vw, 4rem); padding: 0.85rem 1rem; align-items: center; justify-content: space-between; gap: 1rem; border: 1px solid var(--primary); background: var(--primary); color: var(--background); font-family: var(--font-display); font-size: 0.9rem; }
 
 .home-about { padding-block: clamp(4rem, 14vw, 7rem); background: var(--text); color: var(--white); }
 .home-about-grid { display: grid; gap: clamp(2.5rem, 9vw, 6rem); }
@@ -565,6 +565,7 @@ em {
   .identity-grid { grid-auto-columns: 42%; }
   .reviews-track { grid-auto-columns: calc((100% - 1.5rem) / 2); gap: 1.5rem; }
   .behance-link { width: min(100%, 36rem); margin-left: auto; gap: 2rem; }
+  .reviews-link { width: min(100%, 36rem); }
   .contact { text-align: center; }
   .contact h2,
   .contact .button { margin-right: auto; margin-left: auto; }
@@ -625,6 +626,7 @@ em {
 @media (hover: hover) and (pointer: fine) {
   .button,
   .behance-link,
+  .reviews-link,
   .floating-whatsapp,
   .project-media { transition: transform 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease); }
   .button:hover { transform: translateY(-0.2rem); }
@@ -633,7 +635,7 @@ em {
   .service:hover { background: rgba(247, 247, 247, 0.36); }
   .service:hover .service-action { transform: translateX(0.2rem); }
   .behance-link:hover { background: var(--text); color: var(--background); }
-  .reviews-link:hover { color: var(--text); }
+  .reviews-link:hover { background: var(--text); color: var(--background); }
   .reviews-navigation button:hover { background: var(--text); transform: scale(1.03); }
   .floating-whatsapp:hover { transform: translateY(-0.15rem); background: var(--text); }
   .menu a:hover::after,
