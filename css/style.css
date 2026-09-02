@@ -263,7 +263,7 @@ em {
 }
 
 .hero .eyebrow { margin: 0 0 1.5rem; color: rgba(247, 247, 247, 0.86); }
-.hero h1 { max-width: 11ch; font-size: clamp(2.7rem, 11vw, 4.5rem); }
+.hero h1 { max-width: 11ch; font-size: clamp(2.5rem, 10vw, 4.1rem); }
 .hero-text { max-width: 34rem; margin: 1.5rem 0 0; color: rgba(247, 247, 247, 0.78); }
 .hero .button-light { background: var(--white); color: var(--primary); }
 .hero .text-link { border-color: rgba(247, 247, 247, 0.35); color: rgba(247, 247, 247, 0.86); }
