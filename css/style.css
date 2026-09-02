@@ -519,6 +519,7 @@ em {
 .about-copy p { color: var(--text-muted); }
 .about-section { padding-block: clamp(6rem, 18vw, 10rem); border-top: 1px solid var(--line); }
 .history-section { background: var(--surface); }
+.founders-section { padding-block: 0; border-top: 0; }
 .since { margin: 1.25rem 0 0; color: var(--secondary); font-family: var(--font-editorial); font-size: clamp(1.4rem, 5vw, 2rem); font-style: italic; }
 .founders-heading { display: flex; margin-bottom: clamp(4rem, 12vw, 8rem); align-items: baseline; justify-content: space-between; gap: 2rem; }
 .founders-section > .container { width: 100%; max-width: none; }
@@ -543,6 +544,7 @@ em {
 .founder-role { margin: 0 0 0.35rem; color: var(--white); font-family: var(--font-display); font-size: clamp(0.9rem, 3.8vw, 1.2rem); font-style: normal; line-height: 1.35; }
 .founder-bio { max-width: 38rem; margin-top: clamp(2.5rem, 8vw, 4rem); }
 .founder-bio p { color: rgba(247, 247, 247, 0.7); }
+.about-page .contact { padding-block: clamp(3rem, 9vw, 4.5rem); }
 
 .reveal { opacity: 0; transform: translateY(1rem); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
 .reveal.visible { opacity: 1; transform: none; }
