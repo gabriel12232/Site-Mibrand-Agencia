@@ -158,24 +158,28 @@
     const reviewsTrack = reviewsCarousel.querySelector('[data-reviews-track]');
     const reviewsPrevious = reviewsCarousel.querySelector('[data-reviews-prev]');
     const reviewsNext = reviewsCarousel.querySelector('[data-reviews-next]');
+    const reviewsDots = reviewsCarousel.querySelector('[data-reviews-dots]');
     const reviewsCount = reviewsCarousel.querySelector('[data-reviews-count]');
-    const reviewsSource = document.querySelector('.reviews-link')?.href || '#';
     const formatReviewNumber = number => String(number).padStart(2, '0');
-    const reviewInitials = name => name.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase();
 
     reviewsTrack.innerHTML = reviews.map((review, index) => {
       const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
-      return `<article class="review-card reveal" aria-label="Avaliação ${index + 1} de ${reviews.length}">
-        <header class="review-card-head">
-          <span class="review-card-avatar" aria-hidden="true">${reviewInitials(review.name)}</span>
-          <span class="review-card-person"><strong>${review.name}</strong><small>Cliente MIBRAND</small></span>
+      return `<article class="review-card${index === 0 ? ' is-active' : ''}" role="group" aria-roledescription="slide" aria-label="Avaliação ${index + 1} de ${reviews.length}">
+        <div class="review-card-top">
+          <span class="review-card-stars" aria-label="${rating} de 5 estrelas">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
           <span class="review-card-source">Google</span>
-        </header>
-        <span class="review-card-stars" aria-label="${rating} de 5 estrelas">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
+        </div>
         <blockquote>“${review.text}”</blockquote>
-        <footer><span>Avaliação pública</span><a href="${reviewsSource}" target="_blank" rel="noopener" aria-label="Conferir as avaliações da MIBRAND no Google">Conferir no Google ↗</a></footer>
+        <footer>
+          <strong>${review.name}</strong>
+          <span class="review-card-footer-meta"><span>Cliente MIBRAND</span><span>Avaliação pública no Google</span></span>
+        </footer>
       </article>`;
     }).join('');
+
+    reviewsDots.innerHTML = reviews.map((_, index) => `<button class="reviews-dot${index === 0 ? ' is-active' : ''}" type="button" aria-label="Ir para a avaliação ${index + 1}"${index === 0 ? ' aria-current="true"' : ''}></button>`).join('');
+    const reviewCards = [...reviewsTrack.children];
+    const reviewDots = [...reviewsDots.children];
 
     const reviewStep = () => {
       const firstReview = reviewsTrack.firstElementChild;
@@ -184,19 +188,35 @@
     };
     const currentReview = () => Math.min(reviews.length - 1, Math.max(0, Math.round(reviewsTrack.scrollLeft / reviewStep())));
     const updateReviewCount = () => {
-      reviewsCount.textContent = `${formatReviewNumber(currentReview() + 1)} / ${formatReviewNumber(reviews.length)}`;
+      const current = currentReview();
+      reviewsCount.textContent = `${formatReviewNumber(current + 1)} / ${formatReviewNumber(reviews.length)}`;
+      reviewCards.forEach((card, index) => card.classList.toggle('is-active', index === current));
+      reviewsTrack.style.height = `${reviewCards[current].offsetHeight}px`;
+      reviewDots.forEach((dot, index) => {
+        const active = index === current;
+        dot.classList.toggle('is-active', active);
+        if (active) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    };
+    const scrollToReview = index => {
+      const target = (index + reviews.length) % reviews.length;
+      reviewsTrack.scrollTo({ left: target * reviewStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
     };
     const moveReviews = direction => {
-      const current = currentReview();
-      const target = direction > 0
-        ? (current + 1) % reviews.length
-        : (current - 1 + reviews.length) % reviews.length;
-      reviewsTrack.scrollTo({ left: target * reviewStep(), behavior: reducedMotion ? 'auto' : 'smooth' });
+      scrollToReview(currentReview() + direction);
     };
 
     reviewsPrevious.addEventListener('click', () => moveReviews(-1));
     reviewsNext.addEventListener('click', () => moveReviews(1));
+    reviewDots.forEach((dot, index) => dot.addEventListener('click', () => scrollToReview(index)));
     reviewsTrack.addEventListener('scroll', updateReviewCount, { passive: true });
+    reviewsTrack.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft') { event.preventDefault(); moveReviews(-1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); moveReviews(1); }
+      if (event.key === 'Home') { event.preventDefault(); scrollToReview(0); }
+      if (event.key === 'End') { event.preventDefault(); scrollToReview(reviews.length - 1); }
+    });
     addEventListener('resize', updateReviewCount);
 
     let dragging = false;
@@ -277,7 +297,7 @@
       });
       updateFloatingWhatsApp();
     }, { threshold: 0.05 });
-    document.querySelectorAll('.contact, .footer').forEach(section => blockerObserver.observe(section));
+    document.querySelectorAll('.reviews, .contact, .footer').forEach(section => blockerObserver.observe(section));
     updateFloatingWhatsApp();
   }
 
