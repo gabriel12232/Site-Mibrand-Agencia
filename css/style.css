@@ -387,7 +387,7 @@ em {
   font-size: 0.9rem;
 }
 
-.reviews { padding-block: var(--section-space); background: #f1f1f1; color: var(--text); overflow: hidden; }
+.reviews { padding-block: var(--section-space); background: #fff; color: var(--text); overflow: hidden; }
 .reviews-head { display: block; }
 .reviews-intro { position: relative; max-width: 44rem; }
 .reviews h2 { position: relative; z-index: 1; max-width: 14ch; }
