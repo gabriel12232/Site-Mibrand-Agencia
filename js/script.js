@@ -159,14 +159,21 @@
     const reviewsPrevious = reviewsCarousel.querySelector('[data-reviews-prev]');
     const reviewsNext = reviewsCarousel.querySelector('[data-reviews-next]');
     const reviewsCount = reviewsCarousel.querySelector('[data-reviews-count]');
+    const reviewsSource = document.querySelector('.reviews-link')?.href || '#';
     const formatReviewNumber = number => String(number).padStart(2, '0');
+    const reviewInitials = name => name.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase();
 
     reviewsTrack.innerHTML = reviews.map((review, index) => {
       const rating = Math.max(0, Math.min(5, Number(review.rating) || 0));
       return `<article class="review-card reveal" aria-label="Avaliação ${index + 1} de ${reviews.length}">
+        <header class="review-card-head">
+          <span class="review-card-avatar" aria-hidden="true">${reviewInitials(review.name)}</span>
+          <span class="review-card-person"><strong>${review.name}</strong><small>Cliente MIBRAND</small></span>
+          <span class="review-card-source">Google</span>
+        </header>
         <span class="review-card-stars" aria-label="${rating} de 5 estrelas">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
         <blockquote>“${review.text}”</blockquote>
-        <footer><strong>${review.name}</strong><span>Avaliação no Google</span></footer>
+        <footer><span>Avaliação pública</span><a href="${reviewsSource}" target="_blank" rel="noopener" aria-label="Conferir as avaliações da MIBRAND no Google">Conferir no Google ↗</a></footer>
       </article>`;
     }).join('');
 
