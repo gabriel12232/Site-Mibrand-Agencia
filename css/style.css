@@ -564,6 +564,16 @@ em {
 .reveal { opacity: 0; transform: translateY(1rem); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
 .reveal.visible { opacity: 1; transform: none; }
 
+@media (max-width: 47.99rem) {
+  .about-hero { padding-bottom: 2.75rem; }
+  .about-lead p + p { margin-top: 0.5rem; }
+  .history-section { padding-block: 2.75rem; }
+  .home-about { padding-block: 2.75rem; }
+  .reviews { padding-block: 2.75rem; }
+  .contact { padding-block: 3rem; }
+  .about-page .contact { padding-block: 2.5rem; }
+}
+
 @media (min-width: 30rem) {
   :root { --container: min(100% - 2.5rem, 76rem); }
   .actions { grid-template-columns: minmax(0, 14rem) minmax(0, 13rem); align-items: center; }
