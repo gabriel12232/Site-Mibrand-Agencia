@@ -255,7 +255,7 @@ em {
 
 .hero-grid { display: grid; gap: 2.5rem; align-items: center; }
 .hero-copy { width: min(100%, 38rem); min-width: 0; }
-.hero h1 { max-width: 11ch; font-size: clamp(2.5rem, 10vw, 4.1rem); }
+.hero h1 { max-width: 11ch; font-size: clamp(2rem, 8vw, 3.25rem); }
 .hero-text { max-width: 34rem; margin: 1.5rem 0 0; color: rgba(247, 247, 247, 0.78); }
 .hero .button-light { background: var(--white); color: var(--primary); }
 .hero .text-link { border-color: rgba(247, 247, 247, 0.35); color: rgba(247, 247, 247, 0.86); }
@@ -589,7 +589,7 @@ em {
   .menu { top: 5.25rem; height: calc(100dvh - 5.25rem); }
   .brand-mark { width: 2.5rem; height: 2.5rem; }
   .hero { min-height: auto; padding: 8rem 0 4rem; }
-  .hero h1 { max-width: 11ch; font-size: clamp(3.75rem, 7vw, 5rem); }
+  .hero h1 { max-width: 12ch; font-size: clamp(3rem, 5.5vw, 4rem); }
   .about-grid { gap: 3rem; }
   .service { grid-template-columns: 3.5rem minmax(0, 1fr) max-content; min-height: 7.5rem; padding-block: 1.5rem; }
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
