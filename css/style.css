@@ -253,16 +253,6 @@ em {
 
 .hero-grid { display: grid; gap: 2.5rem; align-items: center; }
 .hero-copy { width: min(100%, 38rem); min-width: 0; }
-.eyebrow {
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.hero .eyebrow { margin: 0 0 1.5rem; color: rgba(247, 247, 247, 0.86); }
 .hero h1 { max-width: 11ch; font-size: clamp(2.5rem, 10vw, 4.1rem); }
 .hero-text { max-width: 34rem; margin: 1.5rem 0 0; color: rgba(247, 247, 247, 0.78); }
 .hero .button-light { background: var(--white); color: var(--primary); }
