@@ -180,7 +180,7 @@
         <span class="review-card-stars" aria-label="${rating} de 5 estrelas">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
         <div class="review-card-content"><p class="review-card-text" data-review-text>“${review.text}”</p></div>
         <div class="review-card-more-row"><button class="review-more" type="button" data-review-more="${index}" hidden>Ler avaliação completa</button></div>
-        <footer class="review-card-footer"><span>Avaliação pública no Google</span><a href="${reviewsSource}" target="_blank" rel="noopener noreferrer">Ver no Google ↗</a></footer>
+        <footer class="review-card-footer"><span>Avaliação pública no Google</span><a href="${reviewsSource}" target="_blank" rel="noopener noreferrer">Ver no Google →</a></footer>
       </article>`;
     };
 
