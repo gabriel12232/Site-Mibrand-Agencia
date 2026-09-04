@@ -390,7 +390,6 @@ em {
 .reviews { padding-block: var(--section-space); background: var(--background); color: var(--text); overflow: hidden; }
 .reviews-head { display: block; }
 .reviews-intro { position: relative; max-width: 44rem; }
-.reviews-eyebrow { margin: 0 0 1.5rem; color: var(--primary); font-family: var(--font-display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; }
 .reviews h2 { position: relative; z-index: 1; max-width: 14ch; }
 .reviews-quote { position: absolute; z-index: 0; top: 0.25rem; right: 0; color: rgba(53, 32, 25, 0.06); font-family: var(--font-editorial); font-size: clamp(9rem, 28vw, 15rem); font-style: italic; line-height: 0.8; pointer-events: none; }
 .reviews-subtitle { position: relative; z-index: 1; max-width: 34rem; margin: 1.5rem 0 0; color: var(--text-muted); }
