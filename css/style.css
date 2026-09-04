@@ -388,18 +388,12 @@ em {
 }
 
 .reviews { padding-block: var(--section-space); background: var(--background); color: var(--text); overflow: hidden; }
-.reviews-head { display: grid; gap: clamp(2.5rem, 8vw, 5rem); align-items: end; }
+.reviews-head { display: block; }
 .reviews-intro { position: relative; max-width: 44rem; }
 .reviews-eyebrow { margin: 0 0 1.5rem; color: var(--primary); font-family: var(--font-display); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; }
 .reviews h2 { position: relative; z-index: 1; max-width: 14ch; }
 .reviews-quote { position: absolute; z-index: 0; top: 0.25rem; right: 0; color: rgba(53, 32, 25, 0.06); font-family: var(--font-editorial); font-size: clamp(9rem, 28vw, 15rem); font-style: italic; line-height: 0.8; pointer-events: none; }
 .reviews-subtitle { position: relative; z-index: 1; max-width: 34rem; margin: 1.5rem 0 0; color: var(--text-muted); }
-.reviews-credibility { display: flex; width: min(100%, 23rem); padding: 1rem 0; align-items: center; gap: 1rem; border-top: 1px solid rgba(53, 32, 25, 0.34); border-bottom: 1px solid rgba(53, 32, 25, 0.34); }
-.reviews-credibility > span:last-child { display: grid; gap: 0.05rem; }
-.reviews-credibility strong { font-family: var(--font-display); font-size: 0.84rem; font-weight: 500; }
-.reviews-credibility small { color: var(--text-muted); font-size: 0.72rem; }
-.google-sign { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 0.45rem; color: var(--primary); font-family: var(--font-display); font-size: 0.75rem; font-weight: 500; }
-.google-sign b { display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid rgba(53, 32, 25, 0.3); border-radius: 50%; font-size: 0.8rem; font-weight: 600; }
 .reviews-carousel { width: 100%; margin: clamp(3.5rem, 10vw, 6rem) auto 0; }
 .reviews-stage { overflow: hidden; }
 .reviews-track {
@@ -420,14 +414,12 @@ em {
 .reviews-track::-webkit-scrollbar { display: none; }
 .reviews-track.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
 .review-card { position: relative; display: flex; height: 26rem; padding: 1.35rem; flex-direction: column; border: 1px solid rgba(53, 32, 25, 0.18); border-top: 0.18rem solid var(--primary); border-radius: 0.6rem; background: var(--surface); box-shadow: 0 0.8rem 2rem rgba(53, 32, 25, 0.035); scroll-snap-align: start; scroll-snap-stop: always; }
-.review-card-head { display: grid; min-height: 3.25rem; grid-template-columns: 2.65rem minmax(0, 1fr) auto; align-items: center; gap: 0.65rem; }
+.review-card-head { display: grid; min-height: 3.25rem; grid-template-columns: 2.65rem minmax(0, 1fr); align-items: center; gap: 0.65rem; }
 .review-avatar { display: grid; width: 2.65rem; height: 2.65rem; place-items: center; border-radius: 50%; background: var(--primary); color: var(--white); font-family: var(--font-display); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; }
 .review-user { display: grid; gap: 0.05rem; }
 .review-user strong { display: -webkit-box; overflow: hidden; color: var(--text); font-family: var(--font-display); font-size: 0.78rem; font-weight: 500; line-height: 1.25; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .review-user small { color: var(--text-muted); font-size: 0.65rem; }
-.review-card .google-sign span { display: none; }
-.review-card .google-sign b { width: 1.8rem; height: 1.8rem; background: var(--background); font-size: 0.72rem; }
-.review-card-stars { margin-top: 1rem; color: var(--primary); font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.18em; }
+.review-card-stars { margin-top: 1rem; color: #f5b301; font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.14em; }
 .review-card-content { margin: 1rem 0 0; }
 .review-card-text { display: -webkit-box; margin: 0; overflow: hidden; color: var(--text); font-family: var(--font-editorial); font-size: 1rem; font-style: italic; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 6; }
 .review-card-more-row { display: flex; min-height: 2.2rem; padding-top: 0.65rem; align-items: flex-start; }
@@ -446,13 +438,11 @@ em {
 .review-modal::backdrop { background: rgba(17, 16, 16, 0.66); backdrop-filter: blur(0.15rem); }
 .review-modal-panel { position: relative; max-height: min(90dvh, 48rem); padding: clamp(1.5rem, 6vw, 3rem); overflow-y: auto; }
 .review-modal-close { position: absolute; top: 0.75rem; right: 0.75rem; display: grid; width: 2.5rem; height: 2.5rem; padding: 0; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--primary); font-size: 1.35rem; cursor: pointer; }
-.review-modal-head { display: grid; padding-right: 2.75rem; grid-template-columns: 3rem minmax(0, 1fr) auto; align-items: center; gap: 0.8rem; }
+.review-modal-head { display: grid; padding-right: 2.75rem; grid-template-columns: 3rem minmax(0, 1fr); align-items: center; gap: 0.8rem; }
 .review-modal-avatar { display: grid; width: 3rem; height: 3rem; place-items: center; border-radius: 50%; background: var(--primary); color: var(--white); font-family: var(--font-display); font-size: 0.76rem; font-weight: 600; }
 .review-modal-head h3 { font-size: clamp(1.05rem, 4.5vw, 1.35rem); letter-spacing: -0.02em; line-height: 1.2; }
 .review-modal-head div > span { color: var(--text-muted); font-size: 0.7rem; }
-.google-sign-compact b { width: 1.9rem; height: 1.9rem; }
-.google-sign-compact span { display: none; }
-.review-modal-stars { display: block; margin-top: 1.5rem; color: var(--primary); font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.18em; }
+.review-modal-stars { display: block; margin-top: 1.5rem; color: #f5b301; font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.14em; }
 .review-modal blockquote { margin: 1.25rem 0 2rem; color: var(--text); font-family: var(--font-editorial); font-size: clamp(1.1rem, 4.5vw, 1.45rem); font-style: italic; line-height: 1.55; }
 .review-modal-footer { display: grid; padding-top: 1rem; gap: 0.75rem; border-top: 1px solid var(--line); color: var(--text-muted); font-size: 0.7rem; }
 .review-modal-footer a { color: var(--primary); font-family: var(--font-display); font-size: 0.72rem; font-weight: 500; }
@@ -596,8 +586,6 @@ em {
   .service-action { grid-column: 3; grid-row: 1; justify-self: end; }
   .project-grid { grid-auto-columns: 55%; gap: 1.5rem; }
   .identity-grid { grid-auto-columns: 42%; }
-  .reviews-head { grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.55fr); }
-  .reviews-credibility { justify-self: end; }
   .reviews-track { grid-auto-columns: calc((100% - 1.25rem) / 2); gap: 1.25rem; }
   .review-card { height: 25rem; }
   .review-modal-footer { display: flex; align-items: center; justify-content: space-between; }
@@ -647,7 +635,6 @@ em {
   .project-grid { grid-auto-columns: 38%; }
   .identity-grid { grid-auto-columns: 28%; }
   .reviews-track { grid-auto-columns: calc((100% - 2.5rem) / 3); }
-  .review-card .google-sign span { display: inline; }
   .footer { padding-bottom: 2rem; }
   .footer-grid { grid-template-columns: 1.5fr 0.6fr 1fr; }
 }

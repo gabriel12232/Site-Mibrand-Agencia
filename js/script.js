@@ -176,7 +176,6 @@
         <header class="review-card-head">
           <span class="review-avatar" aria-hidden="true">${reviewInitials(review.name)}</span>
           <span class="review-user"><strong>${review.name}</strong><small>Avaliação no Google</small></span>
-          <span class="google-sign" aria-label="Google"><b aria-hidden="true">G</b><span>Google</span></span>
         </header>
         <span class="review-card-stars" aria-label="${rating} de 5 estrelas">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</span>
         <div class="review-card-content"><p class="review-card-text" data-review-text>“${review.text}”</p></div>
